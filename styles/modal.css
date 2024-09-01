@@ -1,0 +1,104 @@
+.modal-ad {
+    width: 100%;
+    height: 100%;
+	max-height: max-content;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    z-index: 10;
+    opacity: 0;
+    background: var( --white);
+    display: flex;
+    flex-direction: column;
+    transform: scale(.3);
+    background-color: var(--sec-white);
+    background-image: radial-gradient(circle at top left, black 0%, var(--sec-white) 100%);
+    overflow-y: auto;
+    align-items: center;
+
+    transition: all 400ms;
+}
+.modal-ad.active {
+    width: 100%;
+    min-height: 100%;
+    transform: none;
+    opacity: 1 !important;
+
+    z-index: 100000000000000 !important;
+}
+
+
+.modal-nav {
+    width: 100%;
+    height: max-content;
+    position: sticky;
+    top: 0;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    background: var( --light-black);
+    padding-right: 5px !important;
+    
+    cursor: default;
+
+    transition: all 400ms cubic-bezier(0,0.5,.75,1), transform 400ms cubic-bezier(0,0.5,.75,1);
+}
+
+.modal-nav >* {
+    padding: 10px;
+    font-size: calc(1rem + 2vmin);
+    font-weight: bolder;
+    color: var(--white);
+}
+.modal-nav >h1 {
+margin: 0 auto;
+}
+.modal-nav .back:hover {
+    background: var( --transparent-black);
+    color: var( --white);
+}
+.modal-nav h3 {
+    margin: 0 auto;
+    text-transform: uppercase;
+    font-size: 1.2em;
+    color: darkred;
+    text-shadow: 1px 1px black;
+}
+
+.modal-ad .content{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-rows: repeat(auto-fill minmax(150px, 1fr));
+    grid-auto-flow: dense;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+    width: 90%;
+    height: 90%;
+    max-width: 840px;
+    margin-top: var(--top);
+
+}
+.modal-ad .content iframe{
+	width: 100%;
+	height: 100%;
+	border: none;
+
+}
+.modal-ad .content img{
+    width: 100%;
+    height: 100% ;
+    aspect-ratio: 1/1;
+    
+}
+
+.modal-ad .content img:nth-child(1),
+.modal-ad .content img:nth-child(6n){
+    grid-column: span 2;
+    grid-row: span 2;
+    width: 100%;
+    height: 100%;    
+}
